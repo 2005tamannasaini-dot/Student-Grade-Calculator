@@ -21,6 +21,22 @@ def calculate_percentage(total):
     percentage = (total / 300) * 100
     return percentage
 
+def calculate_grade(percentage):
+    if percentage >= 90:
+        return "A"
+    
+    elif percentage >= 75:
+        return "B"
+    
+    elif percentage >= 60:
+        return "C"
+    
+    elif percentage >= 33:
+        return "D"
+    
+    else:
+        return "F"    
+
 show_menu()
 
 student_name = get_student_name()
@@ -36,3 +52,6 @@ print("Total Marks:", total_marks)
 
 percentage = calculate_percentage(total_marks)
 print("Percentage:",  round(percentage, 2), "%")
+
+grade = calculate_grade(percentage)
+print("Grade:", grade)
