@@ -17,6 +17,10 @@ def calculate_total(hindi, english, math):
     total = hindi + english + math
     return total
 
+def calculate_percentage(total):
+    percentage = (total / 300) * 100
+    return percentage
+
 show_menu()
 
 student_name = get_student_name()
@@ -29,3 +33,6 @@ print("Math Marks:", math)
 
 total_marks = calculate_total(hindi, english, math)
 print("Total Marks:", total_marks)
+
+percentage = calculate_percentage(total_marks)
+print("Percentage:",  round(percentage, 2), "%")
