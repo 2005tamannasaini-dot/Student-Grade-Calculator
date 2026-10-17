@@ -37,6 +37,13 @@ def calculate_grade(percentage):
     else:
         return "F"    
 
+def check_result(percentage):
+    if percentage >= 33:
+        return "PASS"
+
+    else:
+        return "FAIL"
+
 show_menu()
 
 student_name = get_student_name()
@@ -55,3 +62,6 @@ print("Percentage:",  round(percentage, 2), "%")
 
 grade = calculate_grade(percentage)
 print("Grade:", grade)
+
+result = check_result(percentage)
+print("Result:", result)
