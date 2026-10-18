@@ -7,10 +7,23 @@ def get_student_name():
     name = input ("Enter student name:")
     return name    
 
+def get_valid_marks(subject):
+    while True:
+        try:
+            marks = float(input(f"Enter {subject} marks (1 to 100): "))
+            if 0 <= marks <= 100:
+                return marks
+            
+            else:
+                print("Invalid marks! Enter marks between 0 and 100.")
+
+        except ValueError:
+            print("Invalid input! Please enter a number.")        
+
 def get_subject_marks():
-    hindi = float(input("Enter Your hindi mark:"))
-    english =float( input("Enter Your english mark:"))
-    math = float(input("Enter Your math mark:"))
+    hindi = get_valid_marks("hindi")
+    english = get_valid_marks("hindi")
+    math = get_valid_marks("hindi")
     return hindi, english, math 
 
 def calculate_total(hindi, english, math):
