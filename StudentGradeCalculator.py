@@ -4,8 +4,14 @@ def show_menu():
     print("2. Exit.")
 
 def get_student_name():
-    name = input ("Enter student name:")
-    return name    
+    while True:
+        name = input("Enter student name:").strip()
+
+        if name:
+            return name
+
+        else:
+            print("Name cannot be empty. Please enter a name.")    
 
 def get_valid_marks(subject):
     while True:
