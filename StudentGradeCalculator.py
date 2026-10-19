@@ -16,7 +16,7 @@ def get_student_name():
 def get_valid_marks(subject):
     while True:
         try:
-            marks = float(input(f"Enter {subject} marks (1 to 100): "))
+            marks = float(input(f"Enter {subject} marks (0-100): "))
             if 0 <= marks <= 100:
                 return marks
             
@@ -27,13 +27,15 @@ def get_valid_marks(subject):
             print("Invalid input! Please enter a number.")        
 
 def get_subject_marks():
-    hindi = get_valid_marks("hindi")
-    english = get_valid_marks("hindi")
-    math = get_valid_marks("hindi")
-    return hindi, english, math 
+    subjects = {
+        "hindi" : get_valid_marks("hindi"),
+        "english" : get_valid_marks("english"),
+        "math" : get_valid_marks("math") 
+    }
+    return subjects 
 
-def calculate_total(hindi, english, math):
-    total = hindi + english + math
+def calculate_total(subjects):
+    total = sum(subjects.values())
     return total
 
 def calculate_percentage(total):
@@ -68,12 +70,12 @@ show_menu()
 student_name = get_student_name()
 print("Student Name:", student_name)
 
-hindi, english, math = get_subject_marks()
-print("Hindi Marks:", hindi)
-print("English Marks:", english)
-print("Math Marks:", math)
+subjects = get_subject_marks()         
+    
+for subject, marks in subjects.items():
+    print(f"{subject} Marks: {marks}")
 
-total_marks = calculate_total(hindi, english, math)
+total_marks = calculate_total(subjects)
 print("Total Marks:", total_marks)
 
 percentage = calculate_percentage(total_marks)
