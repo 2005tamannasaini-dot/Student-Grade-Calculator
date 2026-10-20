@@ -65,24 +65,27 @@ def check_result(percentage):
     else:
         return "FAIL"
 
+def display_result(student_name, subjects, total_marks, percentage, grade, result):
+    print("======== STUDENT RESULT ========")
+    print("Student Name:", student_name)
+        
+    for subject, marks in subjects.items():
+        print(f"{subject} Marks: {marks}")
+    
+    print("Total Marks:", total_marks)   
+    print("Percentage:",  round(percentage, 2), "%")   
+    print("Grade:", grade)
+    print("Result:", result)
 show_menu()
 
 student_name = get_student_name()
-print("Student Name:", student_name)
-
-subjects = get_subject_marks()         
-    
-for subject, marks in subjects.items():
-    print(f"{subject} Marks: {marks}")
+subjects = get_subject_marks()
 
 total_marks = calculate_total(subjects)
-print("Total Marks:", total_marks)
-
 percentage = calculate_percentage(total_marks)
-print("Percentage:",  round(percentage, 2), "%")
-
 grade = calculate_grade(percentage)
-print("Grade:", grade)
-
 result = check_result(percentage)
-print("Result:", result)
+
+display_result(
+    student_name, subjects, total_marks,
+    percentage, grade, result)
