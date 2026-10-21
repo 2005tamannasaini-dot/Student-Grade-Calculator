@@ -40,7 +40,7 @@ def calculate_total(subjects):
 
 def calculate_percentage(total):
     percentage = (total / 300) * 100
-    return percentage
+    return  round(percentage, 2)
 
 def calculate_grade(percentage):
     if percentage >= 90:
@@ -73,7 +73,7 @@ def display_result(student_name, subjects, total_marks, percentage, grade, resul
         print(f"{subject} Marks: {marks}")
     
     print("Total Marks:", total_marks)   
-    print("Percentage:",  round(percentage, 2), "%")   
+    print("Percentage:", percentage, "%")   
     print("Grade:", grade)
     print("Result:", result)
 show_menu()
