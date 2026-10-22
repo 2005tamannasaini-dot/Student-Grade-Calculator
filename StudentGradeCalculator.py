@@ -76,16 +76,28 @@ def display_result(student_name, subjects, total_marks, percentage, grade, resul
     print("Percentage:", percentage, "%")   
     print("Grade:", grade)
     print("Result:", result)
+
 show_menu()
 
-student_name = get_student_name()
-subjects = get_subject_marks()
+while True:
+    student_name = get_student_name()
+    subjects = get_subject_marks()
 
-total_marks = calculate_total(subjects)
-percentage = calculate_percentage(total_marks)
-grade = calculate_grade(percentage)
-result = check_result(percentage)
+    total_marks = calculate_total(subjects)
+    percentage = calculate_percentage(total_marks)
+    grade = calculate_grade(percentage)
+    result = check_result(percentage)
 
-display_result(
-    student_name, subjects, total_marks,
-    percentage, grade, result)
+    display_result(
+        student_name, subjects, total_marks,
+        percentage, grade, result)
+
+    choice = input("\nDo you want to calculate another student's result? (yes/no):").strip().lower()
+
+    if choice == "no":
+        print("Student Grade Calculator Closed. ")
+        break
+
+    elif choice != "yes":
+        print("Invalid choice. Please enter yes or no.")
+        break
