@@ -92,12 +92,15 @@ while True:
         student_name, subjects, total_marks,
         percentage, grade, result)
 
-    choice = input("\nDo you want to calculate another student's result? (yes/no):").strip().lower()
+    while True:
+        choice = input("\nDo you want to calculate another student's result? (yes/no):").strip().lower()
 
-    if choice == "no":
-        print("Student Grade Calculator Closed. ")
-        break
+        if choice == "no":
+            print("Student Grade Calculator Closed. ")
+            exit()
 
-    elif choice != "yes":
-        print("Invalid choice. Please enter yes or no.")
-        break
+        elif choice == "yes":
+            break
+
+        else:
+             print("Invalid choice. Please enter yes or no.")
