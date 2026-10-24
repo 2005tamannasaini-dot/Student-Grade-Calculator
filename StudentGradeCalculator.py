@@ -77,30 +77,42 @@ def display_result(student_name, subjects, total_marks, percentage, grade, resul
     print("Grade:", grade)
     print("Result:", result)
 
-show_menu()
-
 while True:
-    student_name = get_student_name()
-    subjects = get_subject_marks()
+    show_menu()
+    choose = input("Enter your choice (1-2): ").strip()
 
-    total_marks = calculate_total(subjects)
-    percentage = calculate_percentage(total_marks)
-    grade = calculate_grade(percentage)
-    result = check_result(percentage)
+    if choose == "1":
+        student_name = get_student_name()
+        subjects = get_subject_marks()
 
-    display_result(
-        student_name, subjects, total_marks,
-        percentage, grade, result)
+        total_marks = calculate_total(subjects)
+        percentage = calculate_percentage(total_marks)
+        grade = calculate_grade(percentage)
+        result = check_result(percentage)
 
-    while True:
-        choice = input("\nDo you want to calculate another student's result? (yes/no):").strip().lower()
+        display_result(
+            student_name, subjects, total_marks,
+            percentage, grade, result)
+
+        while True:
+            choice = input("\nDo you want to calculate another student's result? (yes/no):").strip().lower()
+
+            if choice == "no":
+                break
+
+            elif choice == "yes":
+                break
+
+            else:
+                print("Invalid choice. Please enter yes or no.")
 
         if choice == "no":
-            print("Student Grade Calculator Closed. ")
-            exit()
-
-        elif choice == "yes":
             break
+    
+    elif choose == "2":
+        print("Student Grade Calculator closed.")
+        break
 
-        else:
-             print("Invalid choice. Please enter yes or no.")
+    else:
+        print("Invalid choice! Please enter 1 or 2.")
+
